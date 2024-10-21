@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet/less" type="text/css" href="stuleDess.less" />
+    <script src="less.js" type="text/javascript"></script>
+
+    <title>Portfolio | Cyrian Torrejon</title>
+</head>
+<body>
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <header>
+        <div class="navbar">
+            <h1>Cyrian Torrejon</h1>
+            <div id="menu-slide" class="menu-slide">
+                <ul>
+                    <li><a class="scrollBtn" data-target="home"><p>Accueil</p></a></li>
+                    <li><a class="scrollBtn" data-target="about"><p>À propos</p></a></li>
+                    <li><a class="scrollBtn" data-target="projects"><p>Projets</p></a></li>
+                    <li><a class="scrollBtn" data-target="contact"><p>Contact</p></a></li>
+                </ul>
+            </div>
+            <ul>
+                <li><a class="scrollBtn" data-target="home"><p>Accueil</p></a></li>
+                <li><a class="scrollBtn" data-target="about"><p>À propos</p></a></li>
+                <li><a class="scrollBtn" data-target="projects"><p>Projets</p></a></li>
+                <li><a class="scrollBtn" data-target="contact"><p>Contact</p></a></li>
+            </ul>
+            <div class="mobile-nav" id="hamburger"><p>&#9776;</p></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Accueil -->
+        <section id="home">
+            <h1>Bienvenue sur mon Portfolio</h1>
+            <p>Je suis ravi de vous accueillir dans mon espace professionnel en ligne.</p>
+            <p>Ici, vous découvrirez l'essence de mon travail, mes réalisations, et les compétences qui feront de moi un futur bon informaticien passionné et engagé.</p>
+            <p>N’hésitez pas à utiliser les différents boutons en haut de votre écran pour naviguer plus simplement dans le site.</p>
+            <p>Bonne visite !</p>
+        </section>
+
+        <!-- Section À propos de moi -->
+        <section id="about">
+            <h2>À propos de moi</h2>
+            <div class="about">
+                <div class="moitier">
+                    <p>Je m’appelle Cyrian Torrejon, j’ai 18 ans, je suis actuellement étudiant en 1ère année de Bachelor Universitaire de Technologie en Informatique à l’IUT2 de Grenoble.</p>
+                    <p>J’ai étudié au lycée général et technologique Pierre du Terrail à Pontcharra, où j’ai eu mon Baccalauréat mention Bien avec spécialités Mathématiques, NSI et option Mathématiques Expertes.</p>
+                    <p>Hors de mon travail, j’adore le dessin et les jeux vidéo.</p>
+                    <p>Cette combinaison avec l’informatique me permet de développer mon esprit créatif et d’être constamment entourer de nouvelles sources d’inspiration.</p>
+                </div>
+                <div class="moitier">
+                    <h3>Zone Dessin</h3>
+                    <div class="container">
+                        <div class="card-carousel">
+                            <!-- va afficher la valeur du milieu par défaut -->
+                            <div class="card" id="1"></div>
+                            <div class="card" id="2"></div>
+                            <div class="card" id="3"></div>
+                            <div class="card" id="4"></div>
+                            <!--Défaut-->
+                            <div class="card" id="5"></div>
+                            <!---------->
+                            <div class="card" id="6"></div>
+                            <div class="card" id="7"></div>
+                            <div class="card" id="8"></div>
+                            <div class="card" id="9"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projects">
+            <h2>Projets</h2>
+            <div class="project-container">
+                <div class="project-card p1" id="p1">
+                    <h3>Projet Protection Patrimoine</h3>
+                    <p>Site web ludique sur les phares français.</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
+                </div>
+                <div class="project-card p2" id="p2">
+                    <h3>Little Space Manager</h3>
+                    <p>Description du projet 2.</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
+                </div>
+                <div class="project-card p3" id="p3">
+                    <h3>Projet 3</h3>
+                    <p>Description du projet 3.</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
+                </div>
+                <!-- Projets supplémentaires, cachés par défaut -->
+                <div class="project-card p4 hidden">
+                    <h3>Projet 4</h3>
+                    <p>Description du projet 4.</p>
+                </div>
+                <div class="project-card p5 hidden">
+                    <h3>Projet 5</h3>
+                    <p>Description du projet 5.</p>
+                </div>
+                <div class="project-card p6 hidden">
+                    <h3>Projet 6</h3>
+                    <p>Description du projet 6.</p>
+                </div>
+                <div class="project-card hidden">
+                    <h3>Projet 7</h3>
+                    <p>Description du projet 7.</p>
+                </div>
+                <div class="project-card hidden">
+                    <h3>Projet 8</h3>
+                    <p>Description du projet 8.</p>
+                </div>
+                <div class="project-card hidden">
+                    <h3>Projet 9</h3>
+                    <p>Description du projet 9.</p>
+                </div>
+                <div class="project-card hidden">
+                    <h3>Projet 10</h3>
+                    <p>Description du projet 10.</p>
+                </div>
+                <!-- Ajouter autant de cartes de projets que nécessaire -->
+            </div>
+            <div class="detail" id="d1">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Phare Away</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>Saucisse</p>
+                    <p>Test</p>
+                </div>
+            </div>
+            <div class="detail" id="d2">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Little Space Manager</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>test</p>
+                </div>
+            </div>
+            <div class="show-more">
+                <button id="show-more"><i class='bx bxs-down-arrow'></i></button>
+                <button class="hidden" id="show-less"><i class='bx bxs-up-arrow' ></i></button>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <form>
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea rows="5" placeholder="Votre message" required></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="carousel/jsCarousel.js"></script>
+</body>
+</html>

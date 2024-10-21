@@ -1,0 +1,545 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Masquer la barre de défilement pour tous les éléments */
+body, html {
+    overflow: -moz-scrollbars-none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar { 
+    display: none;  /* Chrome, Safari et Opera */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(17, 17, 17); /* Thème sombre */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 10px 0;
+    position: fixed; /* Navbar fixe */
+    width: 100%;
+    z-index: 1000; /* Assurer que la navbar est au-dessus des autres éléments */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar h1 {
+    font-size: 24px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: ghostwhite;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    user-select: none;
+    display: none;
+}
+
+main {
+    padding: 80px 20px 20px; /* Ajout de padding supérieur pour compenser la navbar fixe */
+}
+
+section {
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*======================= Accueil =======================*/
+#home {
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 48px;
+}
+
+#home p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/*======================= À propos de moi =======================*/
+
+#about {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.about{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.moitier{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+/*======================= Projets =======================*/
+
+.project-container {
+    display: grid; /* Appliquer le style de grille ici */
+    grid-template-columns: repeat(3, 1fr); /* Trois projets par ligne */
+    overflow: hidden; /* Empêche les débordements */
+    max-height: 0; /* Par défaut, cache les projets */
+    transition: max-height 0.5s ease; /* Transition pour la hauteur */
+    gap: 50px;
+    margin-top: 5%;
+    padding: 0 10% 0 10%;
+}
+
+.project-card {
+    border-radius: 10px;
+    padding: 20px;
+    display: flex; /* Utiliser flex pour centrer le contenu */
+    flex-direction: column; /* Aligner le contenu verticalement */
+    justify-content: space-around; /* Distribuer l'espace entre les éléments */
+    min-height: 200px;
+    background-size: cover;    /* L'image couvre toute la surface du conteneur */
+    background-position: center; /* L'image est centrée dans le conteneur */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    text-shadow: black 0 0 10px, 1px 1px 2px black;
+    box-shadow: inset 3px 3px 5px rgb(0, 0, 0), inset -3px -3px 5px rgb(0, 0, 0);
+    user-select: none;
+    transition: all 0.5s;
+
+    /*debug*/
+    border: ghostwhite 1px solid;
+}
+
+.project-card:hover {
+    text-shadow: none;
+    cursor: pointer;
+    color: black;
+    transition: all 0.5s;
+}
+
+.project-card:hover .voirPlus{
+    padding-left: 15%;
+}
+
+.voirPlus {
+    transition: padding-left 0.5s;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.project-card p {
+    font-size: 14px;
+}
+
+.detail {
+    backdrop-filter: blur(10px) opacity(0);
+    position: fixed;
+    top: -100vh; /* Cacher le menu en haut de l'écran */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: none;
+    opacity: 100%;
+    color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.5s ease, backdrop-filter 0s; /* Animation pour le slide */
+    z-index: 1050; /* Au-dessus du contenu */
+    
+}
+
+.contenu{
+    padding: 50px;
+    width: 50%;
+    background-color: #1e1e1e;
+    border: ghostwhite 1px solid;
+    border-radius: 20px;
+}
+
+.detail.active {
+    top: 0;
+    backdrop-filter: blur(10px) opacity(1);
+    transition: top 0.5s ease, backdrop-filter 1s;
+}
+
+.close-detail {
+    user-select: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.close-detail:hover{
+    transform: rotate(90deg);
+}
+
+.displayDetail{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*=======================Projets individuels=======================*/
+
+.p1{
+    border: aqua 2px solid;
+    background-image: url("bg/p11.jpg");
+    color: ghostwhite;
+}
+
+.p1:hover{
+    color: ghostwhite;
+    text-shadow: black 0 0 25px, 1px 1px 2px black;
+    box-shadow: inset 3px 3px 50px rgb(0, 0, 0), inset -3px -3px 50px rgb(0, 0, 0);
+}
+
+.p2{
+    border: red 2px solid;
+}
+
+.p2:hover{
+    background-color: red;
+}
+
+/*======================= Cacher les projets par défaut =======================*/
+
+.hidden {
+    opacity: 0; /* Ajouté : Transparence */
+    max-height: 0; /* Ajouté : Hauteur zéro */
+    overflow: hidden; /* Ajouté : Masquer le contenu */
+    transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease; /* Transition ajoutée */
+    pointer-events: none;
+}
+
+.show-more button.hidden {
+    display: none;
+}
+
+/*======================= Show Buttons =======================*/
+
+.show-more {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.show-more button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    /*debug
+    border: ghostwhite 1px solid;
+    */
+}
+
+.show-more button:hover{
+    transition: transform 0.5s;
+    transform: scale(1.5);
+}
+
+/*======================= Contact =======================*/
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contact form input,
+#contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+}
+
+#contact form input[type="submit"] {
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+        cursor: pointer;
+        align-items: center;
+        padding: 10px;
+        background-color: transparent;
+        z-index:1000;
+        transition: transform 0.5s;
+    }
+
+    .rotate{
+        transition: transform 0.5s;
+        transform: rotate(-90deg);
+    }
+
+    .mobile-nav p{
+        font-weight: bold;
+    }
+
+    .menu-slide.active ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr; /* Un projet par ligne sur mobile */
+    }
+
+    .about{
+        flex-direction: column;
+    }
+    
+    .moitier{
+        width: 100%;
+    }
+}
+
+/* Menu Slide */
+
+.menu-slide {
+    position: fixed;
+    top: -100vh; /* Cacher le menu en haut de l'écran */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #1e1e1e;
+    opacity: 100%;
+    color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.5s ease; /* Animation pour le slide */
+    z-index: 999; /* Au-dessus du contenu */
+}
+
+.menu-slide ul {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-slide ul li {
+    margin: 20px 0;
+}
+
+.menu-slide ul li a {
+    text-decoration: none;
+    font-size: 24px;
+    color: white;
+}
+
+.scrollBtn p{
+    user-select: none;
+    padding: 10px;
+    color: ghostwhite;
+    box-shadow: none;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 5px black, -3px -3px 5px rgb(75, 75, 75);
+    border-radius: 10%;
+}
+
+.scrollBtn:hover p{
+    color: aquamarine;
+    transition: all 0.5s;
+}
+
+.scrollBtn:active p{
+    transition: all 0.2s;
+    box-shadow: 0 0 0px black, 0 0 0px rgb(75, 75, 75) ,inset 3px 3px 5px rgb(0, 0, 0), inset -3px -3px 5px rgb(75,75,75);
+}
+
+/* Animation de slide */
+.menu-slide.active {
+    top: 0; /* Fait glisser le menu vers le bas */
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/*=================== Style pour le preloader ===================================*/
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Transition pour rendre la disparition douce */
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #5a5a5a;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation pour la rotation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*========================Carousel========================================*/
+
+.visuallyhidden {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    opacity: 0;
+    
+  }
+  
+  .container {
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 2em;
+  }
+  
+  .card-carousel {
+    --card-width: 80%;
+    --card-max-width: 280px;
+    --card-height: 350px;
+    --carousel-min-width: 600px;
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: var(--card-height);
+    min-width: var(--carousel-min-width);
+    transition: filter .3s ease;
+  }
+  
+  @media screen and (max-width: 640px) {
+    .card-carousel {
+      margin-left: calc((100vw - var(--carousel-min-width) - 110px) / 2)
+    }
+  }
+  
+  .card-carousel.smooth-return {
+    transition: all .2s ease;
+  }
+  
+  .card-carousel .card {
+    background: ghostwhite;
+    width: var(--card-width);
+    max-width: var(--card-max-width);
+    text-align: center;
+    padding: 1em;
+    min-width: 250px;
+    height: var(--card-height);
+    position: absolute;
+    margin: 0 auto;
+    transition: inherit;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 1em;
+    filter: brightness(.9);
+    background-size: cover;    /* L'image couvre toute la surface du conteneur */
+    background-position: center; /* L'image est centrée dans le conteneur */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  }
+  
+  .card.highlight {
+    filter: brightness(1)
+  }
+  
+  /*=====================Liste dessins modifiables=====================*/
+  
+
+  
+  .card:nth-of-type(1){
+    background-image: url("dessins/1.jpg");
+  }
+
+  .card:nth-of-type(2){
+    background-image: url("dessins/2.jpg");
+  }
+
+  .card:nth-of-type(3){
+    background-image: url("dessins/3.jpg");
+  }
+
+  .card:nth-of-type(4){
+    background-image: url("dessins/4.jpg");
+  }
+
+  .card:nth-of-type(5){
+    background-image: url("dessins/5.jpg");
+  }
+
+  .card:nth-of-type(6){
+    background-image: url("dessins/6.jpg");
+  }
+
+  .card:nth-of-type(7){
+    background-image: url("dessins/7.jpg");
+  }
+
+  .card:nth-of-type(8){
+    background-image: url("dessins/8.jpg");
+  }
+
+  .card:nth-of-type(9){
+    background-image: url("dessins/9.jpg");
+  }
+
+  .card:nth-of-type(10){
+    background-image: url("dessins/10.jpg");
+  }
