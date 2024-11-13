@@ -18,9 +18,13 @@ body::-webkit-scrollbar {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(17, 17, 17); /* Thème sombre */
-    color: #ffffff;
+    background-color: #2e2e2e;
+    color: ghostwhite;
     line-height: 1.6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -29,6 +33,21 @@ header {
     position: fixed; /* Navbar fixe */
     width: 100%;
     z-index: 1000; /* Assurer que la navbar est au-dessus des autres éléments */
+}
+
+footer{
+    width: 100%;
+}
+
+.foot{
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 50px 10px 50px;
+    justify-content: space-between;
+    color: rgb(78, 78, 78);
 }
 
 .navbar {
@@ -64,11 +83,12 @@ header {
 
 main {
     padding: 80px 20px 20px; /* Ajout de padding supérieur pour compenser la navbar fixe */
+    background-color: rgb(17, 17, 17);
+    width: 90%;
 }
 
 section {
     margin-top: 80px;
-    margin-bottom: 200px;
 }
 
 h2 {
@@ -90,13 +110,15 @@ h2 {
     margin: 20px 0;
 }
 
+#reset-button{
+    cursor: pointer;
+}
+
 /*======================= À propos de moi =======================*/
 
 #about {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 80px;
     text-align: center;
+    padding: 0 10% 0 10%;
 }
 
 .about{
@@ -181,7 +203,7 @@ h2 {
     justify-content: center;
     transition: top 0.5s ease, backdrop-filter 0s; /* Animation pour le slide */
     z-index: 1050; /* Au-dessus du contenu */
-    
+    padding-bottom: 20px;
 }
 
 .contenu{
@@ -190,6 +212,11 @@ h2 {
     background-color: #1e1e1e;
     border: ghostwhite 1px solid;
     border-radius: 20px;
+}
+
+.contenu div{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .detail.active {
@@ -214,11 +241,22 @@ h2 {
     justify-content: space-between;
 }
 
+.techno{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /*=======================Projets individuels=======================*/
 
 .p1{
     border: aqua 2px solid;
-    background-image: url("bg/p11.jpg");
+    background-image: url("bg/p1.jpg");
     color: ghostwhite;
 }
 
@@ -229,12 +267,40 @@ h2 {
 }
 
 .p2{
-    border: red 2px solid;
+    border: #8e4235 2px solid;
+    background-image: url("bg/p2.jpg");
 }
 
 .p2:hover{
-    background-color: red;
+    color: ghostwhite;
+    text-shadow: black 0 0 25px, 1px 1px 2px black;
+    box-shadow: inset 3px 3px 50px rgb(0, 0, 0), inset -3px -3px 50px rgb(0, 0, 0);
 }
+
+.p3{
+    border: rgb(0, 160, 0) 2px solid;
+    background-image: url("bg/p3.jpg");
+    color: ghostwhite;
+}
+
+.p3:hover{
+    color: ghostwhite;
+    text-shadow: black 0 0 25px, 1px 1px 2px black;
+    box-shadow: inset 3px 3px 50px rgb(0, 0, 0), inset -3px -3px 50px rgb(0, 0, 0);
+}
+
+.p5{
+    border: #d8c9aa 2px solid;
+    background-image: url("bg/p5.jpg");
+    color: ghostwhite;
+}
+
+.p5:hover{
+    color: ghostwhite;
+    text-shadow: black 0 0 25px, 1px 1px 2px black;
+    box-shadow: inset 3px 3px 50px rgb(0, 0, 0), inset -3px -3px 50px rgb(0, 0, 0);
+}
+
 
 /*======================= Cacher les projets par défaut =======================*/
 
@@ -299,7 +365,7 @@ h2 {
     cursor: pointer;
 }
 
-/* Responsiveness */
+/*============== Responsiveness ===================*/
 
 @media (max-width: 768px) {
     .navbar ul {
@@ -341,6 +407,26 @@ h2 {
     
     .moitier{
         width: 100%;
+    }
+
+    .container{
+        margin-left: 15px;
+    }
+
+    .contenu{
+        width: 95%;
+    }
+
+    .contenu p{
+        font-size: small;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    #about {
+        padding: 0;
     }
 }
 
@@ -499,6 +585,60 @@ h2 {
   .card.highlight {
     filter: brightness(1)
   }
+
+  #carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Pour le défilement fluide sur iOS */
+}
+
+    /*====================== Splash Screen ===========================*/*
+
+#splash-screen {
+    position: fixed;
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('bg/splash.gif') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease;
+}
+
+.splash-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+#enter-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: ghostwhite;
+    background-color: rgb(0,0,0,0.3);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 1px ghostwhite solid;
+    transition: all 0.3s;
+}
+
+#enter-button:hover {
+    color: black;
+    border: #000000 1px solid;
+    background-color: rgb(248, 248, 255, 0.6);
+}
+
+#main-content{
+    opacity: 0;
+    transition: opacity 1s ease;
+}
   
   /*=====================Liste dessins modifiables=====================*/
   
@@ -542,4 +682,8 @@ h2 {
 
   .card:nth-of-type(10){
     background-image: url("dessins/10.jpg");
+  }
+
+  .card:nth-of-type(11){
+    background-image: url("dessins/11.jpg");
   }

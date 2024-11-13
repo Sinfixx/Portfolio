@@ -166,3 +166,54 @@ window.addEventListener('click', function(event) {
         closeDetail();
     }
 });
+
+//=================splash screen=========================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const enterButton = document.getElementById('enter-button');
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.getElementById('main-content');
+    const resetButton = document.getElementById('reset-button');
+
+    // Vérifie si l'utilisateur est déjà entré
+    if (localStorage.getItem('hasEntered') === 'true') {
+        body.classList.remove('no-scroll'); // Rétablit le scroll
+        splashScreen.style.opacity = '0';
+        splashScreen.style.display = 'none';
+        // Utilise une légère temporisation pour permettre l'animation de transition d'opacité
+        setTimeout(() => {
+            mainContent.style.opacity = '1';
+        }, 10);
+    }else{
+        body.classList.add('no-scroll'); // Bloque le scroll
+    }
+    
+    enterButton.addEventListener('click', () => {
+        splashScreen.style.opacity = '0';
+        body.classList.remove('no-scroll'); // Rétablit le scroll
+        setTimeout(() => {
+            splashScreen.style.display = 'none';
+            // Utilise une légère temporisation pour déclencher l'opacité
+            setTimeout(() => {
+                mainContent.style.opacity = '1';
+            }, 10);
+
+            localStorage.setItem('hasEntered', 'true');
+        }, 500);
+    });
+
+    // Réaffiche le splash screen lors du clic sur le bouton de réinitialisation
+    resetButton.addEventListener('click', () => {
+        localStorage.removeItem('hasEntered');
+        body.classList.add('no-scroll'); // Bloque le scroll
+        // Transition pour masquer le contenu principal
+        mainContent.style.opacity = '0';
+        setTimeout(() => {
+            splashScreen.style.display = 'flex';
+            // Utilise une légère temporisation pour déclencher la transition du splash screen
+            setTimeout(() => {
+                splashScreen.style.opacity = '1';
+            }, 10);
+        }, 500);
+    });
+});

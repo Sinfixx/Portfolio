@@ -16,9 +16,18 @@
     <div id="preloader">
         <div class="loader"></div>
     </div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-overlay">
+            <button id="enter-button">Entrer</button>
+        </div>
+    </div>
+    <!-- background -->
+    <div class="background"></div>
+    <!-- ---------- -->
     <header>
         <div class="navbar">
-            <h1>Cyrian Torrejon</h1>
+            <h1 id="reset-button">Cyrian Torrejon</h1>
             <div id="menu-slide" class="menu-slide">
                 <ul>
                     <li><a class="scrollBtn" data-target="home"><p>Accueil</p></a></li>
@@ -37,7 +46,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Section Accueil -->
         <section id="home">
             <h1>Bienvenue sur mon Portfolio</h1>
@@ -54,11 +63,11 @@
                 <div class="moitier">
                     <p>Je m’appelle Cyrian Torrejon, j’ai 18 ans, je suis actuellement étudiant en 1ère année de Bachelor Universitaire de Technologie en Informatique à l’IUT2 de Grenoble.</p>
                     <p>J’ai étudié au lycée général et technologique Pierre du Terrail à Pontcharra, où j’ai eu mon Baccalauréat mention Bien avec spécialités Mathématiques, NSI et option Mathématiques Expertes.</p>
-                    <p>Hors de mon travail, j’adore le dessin et les jeux vidéo.</p>
+                    <p>Hors de mon travail, je suis passionné de jeux vidéo et de dessin, en particulier le style cartoon et le character design.</p>
                     <p>Cette combinaison avec l’informatique me permet de développer mon esprit créatif et d’être constamment entourer de nouvelles sources d’inspiration.</p>
                 </div>
                 <div class="moitier">
-                    <h3>Zone Dessin</h3>
+                    <h3>Mes derniers dessins</h3>
                     <div class="container">
                         <div class="card-carousel">
                             <!-- va afficher la valeur du milieu par défaut -->
@@ -66,18 +75,19 @@
                             <div class="card" id="2"></div>
                             <div class="card" id="3"></div>
                             <div class="card" id="4"></div>
-                            <!--Défaut-->
                             <div class="card" id="5"></div>
-                            <!---------->
+                            <!--Défaut-->
                             <div class="card" id="6"></div>
+                            <!---------->
                             <div class="card" id="7"></div>
                             <div class="card" id="8"></div>
                             <div class="card" id="9"></div>
+                            <div class="card" id="10"></div>
+                            <div class="card" id="11"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
         <!-- Section Projets -->
@@ -91,64 +101,186 @@
                 </div>
                 <div class="project-card p2" id="p2">
                     <h3>Little Space Manager</h3>
-                    <p>Description du projet 2.</p>
+                    <p>Logiciel de gestion de salles d'évenement</p>
                     <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
                 </div>
                 <div class="project-card p3" id="p3">
-                    <h3>Projet 3</h3>
-                    <p>Description du projet 3.</p>
+                    <h3>Découverte de l'environement économique et écologique</h3>
+                    <p>Réalisation d'un site web informatif</p>
                     <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
                 </div>
                 <!-- Projets supplémentaires, cachés par défaut -->
-                <div class="project-card p4 hidden">
-                    <h3>Projet 4</h3>
-                    <p>Description du projet 4.</p>
+                <div class="project-card p4 hidden" id="p4">
+                    <h3>Classification de depeches</h3>
+                    <p>Algorithme de répartition de texte par genre</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
                 </div>
-                <div class="project-card p5 hidden">
-                    <h3>Projet 5</h3>
-                    <p>Description du projet 5.</p>
+                <div class="project-card p5 hidden" id="p5">
+                    <h3>Creation d'une base de données</h3>
+                    <p>sur les informations du naufrage du Titanic</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
                 </div>
-                <div class="project-card p6 hidden">
-                    <h3>Projet 6</h3>
-                    <p>Description du projet 6.</p>
+                <div class="project-card p6 hidden" id="p6">
+                    <h3>Installation d'un poste pour le développement</h3>
+                    <p>Déploiement d'une machine virtuelle Linux</p>
+                    <h2 class="voirPlus">Voir plus <i class='bx bx-right-arrow-alt'></i></h2>
                 </div>
-                <div class="project-card hidden">
-                    <h3>Projet 7</h3>
-                    <p>Description du projet 7.</p>
-                </div>
-                <div class="project-card hidden">
-                    <h3>Projet 8</h3>
-                    <p>Description du projet 8.</p>
-                </div>
-                <div class="project-card hidden">
-                    <h3>Projet 9</h3>
-                    <p>Description du projet 9.</p>
-                </div>
-                <div class="project-card hidden">
-                    <h3>Projet 10</h3>
-                    <p>Description du projet 10.</p>
+                <div class="project-card p7 hidden" id="p7">
+                    <h3>A suivre</h3>
                 </div>
                 <!-- Ajouter autant de cartes de projets que nécessaire -->
             </div>
+
             <div class="detail" id="d1">
                 <div class="contenu">
                     <div class="displayDetail">
                         <h3>Phare Away</h3>
                         <span class="close-detail">&times;</span>
                     </div>
-                    <p>Saucisse</p>
-                    <p>Test</p>
+                    <p>"Phare Away" est une application web ludique et éducative dédiée à la découverte et à la préservation des phares. Elle a pour but de sensibilisé les utilisateurs à l’importance de protéger ces monuments en danger.</p>
+                    <p>Le projet combine jeu interactif et soutien financier aux associations de protection des phares.</p>
+                    <p>Il est réalisé avec un groupe de 6 personnes, ou je joue le rôle de Lead Designer et développeur web.</p>
+                    <p>Date de sortie prévue : Mars 2025</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>NextJS</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Feur</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="detail" id="d2">
                 <div class="contenu">
                     <div class="displayDetail">
                         <h3>Little Space Manager</h3>
                         <span class="close-detail">&times;</span>
                     </div>
-                    <p>test</p>
+                    <p>"Little Space Manager" est un logiciel de gestion de salles d'évenements</p>
+                    <p>Il est destiné aux communes pour qu'elles puissent gérer un grand nombre de salles de moins de 200 places.</p>
+                    <p>Et que ces dernières puissent optimisé au mieux l'utilisation de ses salles par les habitants ou des intervenants éxtérieurs</p>
+                    <p>Les membres, les accessoires, les événements, et la billeterie son gérer directement dans le logiciel permettant un accès simple à toute les fonctionnalités.</p>
+                    <p>Réalisé avec un groupe de 6 personnes, j'y jouais le rôle de développeur front-end principalement, ainsi que back-end lorsque mes collègues le nécessiter.</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>JavaFX</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>CSS</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="detail" id="d3">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Orange Business Services</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>Pour ce projet, nous avons du analyser les caractéristiques économiques, écologiques, et environnementales d'une entreprise de services numérique française.</p>
+                    <p>La notre était Orange Business Services, et nous avons développer un site internet informatif de plusieurs pages expliquant les aspects écologiques et les projets d'OBS</p>
+                    <p>tout en essayant le plus possible de reproduir son style graphique significatif.</p>
+                    <p>Nous avons rajouter des élèments de PHP et de JavaScript pour amélioré la fluidité globale du site et permettre de faire une page de contact fonctionnel.</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>HTML</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>CSS</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail" id="d4">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Classification de depeches</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>"Phare Away" est une application web ludique et éducative dédiée à la découverte et à la préservation des phares. Elle a pour but de sensibilisé les utilisateurs à l’importance de protéger ces monuments en danger.</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>NextJS</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Feur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail" id="d5">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Base de données Titanic</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>"Phare Away" est une application web ludique et éducative dédiée à la découverte et à la préservation des phares. Elle a pour but de sensibilisé les utilisateurs à l’importance de protéger ces monuments en danger.</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>NextJS</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Feur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail" id="d6">
+                <div class="contenu">
+                    <div class="displayDetail">
+                        <h3>Installation d'une machine virtuelle</h3>
+                        <span class="close-detail">&times;</span>
+                    </div>
+                    <p>"Phare Away" est une application web ludique et éducative dédiée à la découverte et à la préservation des phares. Elle a pour but de sensibilisé les utilisateurs à l’importance de protéger ces monuments en danger.</p>
+                    <div class="techno">
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>NextJS</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="pic">
+                            <i class='bx bx-data'></i>
+                            <p>Feur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="show-more">
                 <button id="show-more"><i class='bx bxs-down-arrow'></i></button>
                 <button class="hidden" id="show-less"><i class='bx bxs-up-arrow' ></i></button>
@@ -166,6 +298,12 @@
             </form>
         </section>
     </main>
+    <footer>
+        <div class="foot">
+            <p>cyrian.torrejon@etu.univ-grenoble-alpes.fr</p>
+            <p>Last Update : 13/11/2024</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
     <script src="carousel/jsCarousel.js"></script>
 </body>

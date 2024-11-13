@@ -327,3 +327,36 @@ class CardCarousel extends DraggingEvent {
 }
 
 const carousel = new CardCarousel(cardsContainer)
+
+//=====================TEST NO DOUBLE SCROLL======================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('carousel');
+  let startX = 0;
+  let startY = 0;
+  let isSwiping = false;
+
+  // Désactive le défilement vertical lors de la détection d'un swipe horizontal
+  carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isSwiping = false;
+  });
+
+  carousel.addEventListener('touchmove', (e) => {
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+
+      // Vérifie si le geste est principalement horizontal
+      if (Math.abs(dx) > Math.abs(dy)) {
+          isSwiping = true;
+          // Empêche le défilement vertical
+          e.preventDefault();
+      }
+  });
+
+  carousel.addEventListener('touchend', () => {
+      // Réinitialise la détection de swipe à la fin du geste
+      isSwiping = false;
+  });
+});
