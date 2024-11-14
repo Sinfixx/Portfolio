@@ -229,33 +229,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 });
-
-//=================== Contact ==========================
-
-const emailjsUserId = 'I2aXY5ZE0QLS8fqgj';
-
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Empêche le rechargement de la page lors de l'envoi du formulaire
-  
-  // Récupérer les valeurs du formulaire
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  // Créer les paramètres pour l'envoi du mail
-  const templateParams = {
-    name: name,
-    email: email,
-    message: message,
-  };
-
-  // Envoyer le formulaire avec EmailJS
-  emailjs.send('service_h5jqqks', 'template_9pau7j7', templateParams)
-    .then(function(response) {
-      alert('Message envoyé avec succès !');
-      document.getElementById('contactForm').reset(); // Réinitialise le formulaire
-    }, function(error) {
-      alert('Échec de l\'envoi du message. Veuillez réessayer.');
-      console.error('Erreur:', error);
-    });
-});

@@ -369,7 +369,7 @@ h2 {
 
 .contact-form-container {
     width: 90%;
-    max-width: 400px;
+    max-width: 800px;
     padding: 20px;
     border-radius: 8px;
   }
@@ -402,7 +402,7 @@ h2 {
   
   .input-container input::placeholder,
   .input-container textarea::placeholder {
-    color: rgb(59, 59, 59);
+    color: rgba(248, 248, 255, 0.5);
   }
   
   .underline {
@@ -553,7 +553,7 @@ h2 {
     color: ghostwhite;
     box-shadow: none;
     transition: all 0.2s;
-    box-shadow: 3px 3px 5px black, -3px -3px 5px rgb(75, 75, 75);
+    box-shadow: 1px 1px 5px black, -1px -1px 5px rgb(75, 75, 75);
     border-radius: 10%;
 }
 
@@ -564,7 +564,7 @@ h2 {
 
 .scrollBtn:active p{
     transition: all 0.2s;
-    box-shadow: 0 0 0px black, 0 0 0px rgb(75, 75, 75) ,inset 3px 3px 5px rgb(0, 0, 0), inset -3px -3px 5px rgb(75,75,75);
+    box-shadow: 0 0 0px black, 0 0 0px rgb(75, 75, 75) ,inset 1px 1px 5px rgb(0, 0, 0), inset -1px -1px 5px rgb(75,75,75);
 }
 
 /* Animation de slide */
@@ -777,8 +777,6 @@ h2 {
 }
   
   /*=====================Liste dessins modifiables=====================*/
-  
-
   
   .card:nth-of-type(1){
     background-image: url("dessins/1.jpg");
