@@ -10,6 +10,7 @@ body, html {
     overflow: -moz-scrollbars-none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
+    background-color: #1e1e1e;
 }
 
 body::-webkit-scrollbar { 
@@ -24,8 +25,8 @@ body {
     align-items: center;
     background-image: url(bg/par.png);
     background-attachment: fixed;
-    background-size: cover;
 }
+
 
 header {
     background-color: #1e1e1e;
@@ -57,8 +58,19 @@ footer{
     padding: 0 20px;
 }
 
-.navbar h1 {
+.title-reset{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-reset h1 {
     font-size: 24px;
+}
+
+.title-reset img {
+    height: 38px;
 }
 
 .navbar ul {
@@ -429,7 +441,7 @@ h2 {
 
 /*============== Responsiveness ===================*/
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .navbar ul {
         display: none;
     }
@@ -489,6 +501,16 @@ h2 {
 
     #about {
         padding: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .disp{
+        display: none;
+    }
+
+    .foot{
+        justify-content: center;
     }
 }
 
@@ -555,32 +577,83 @@ h2 {
 }
 
 /*=================== Style pour le preloader ===================================*/
+
 #preloader {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 9999;
+    transition: all 0.5;
+    background-color: black;
     opacity: 1;
     transition: opacity 0.5s ease; /* Transition pour rendre la disparition douce */
 }
 
-.loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #5a5a5a;
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+    border: 3px solid transparent;
+    border-top-color: rgba(248, 248, 255, 0.4);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
-
-/* Animation pour la rotation */
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgba(248, 248, 255, 0.7);
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: ghostwhite;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 /*========================Carousel========================================*/
@@ -613,13 +686,11 @@ h2 {
     transition: filter .3s ease;
   }
   
-  
-  @media screen and (max-width: 660px) {
+  @media (max-width: 500px) {
     .card-carousel {
       margin-left: calc((100vw - var(--carousel-min-width) - 85px) / 2)
     }
   }
-
   
   .card-carousel.smooth-return {
     transition: all .2s ease;

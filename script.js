@@ -66,7 +66,7 @@ function updateProjectDisplay() {
 
     const n = Math.min(displayedProjects, totalProjects);
     const projectHeight = document.querySelector('.project-card').offsetHeight; // Récupérer la hauteur d'une carte projet
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1200) {
         document.querySelector('.project-container').style.maxHeight = `${(n + (3 - n % 3) % 3) * ((projectHeight)+50)}px`; // Ajuster la max-height dynamiquement
         // Code pour les écrans petits
     } else {
@@ -82,6 +82,10 @@ function updateProjectDisplay() {
 
 // Initialiser l'affichage des projets
 updateProjectDisplay();
+
+window.addEventListener('resize', () => {
+    updateProjectDisplay();
+});
 
 //Menu Slide :
 

@@ -14,7 +14,7 @@
 <body class="parallax">
     <!-- preloader -->
     <div id="preloader">
-        <div class="loader"></div>
+        <div id="loader"></div>
     </div>
     <!-- Splash Screen -->
     <div id="splash-screen">
@@ -25,7 +25,10 @@
     <!------------------->
     <header>
         <div class="navbar">
-            <h1 id="reset-button">Cyrian Torrejon</h1>
+            <div class="title-reset" id="reset-button">
+                <img src="bg/favi.png" alt="icon">
+                <h1 class="disp">Cyrian Torrejon</h1>
+            </div>
             <div id="menu-slide" class="menu-slide">
                 <ul>
                     <li><a class="scrollBtn" data-target="home"><p>Accueil</p></a></li>
@@ -145,12 +148,12 @@
                             <p>NextJS</p>
                         </div>
                         <div class="pic">
-                            <i class='bx bxl-javascript' ></i>
+                            <i class='bx bxl-react' ></i>
                             <p>React</p>
                         </div>
                         <div class="pic">
-                            <i class='bx bx-cloud-snow'></i>
-                            <p>Feur</p>
+                            <i class='bx bxl-django'></i>
+                            <p>Django</p>
                         </div>
                     </div>
                 </div>
@@ -299,7 +302,7 @@
     <footer>
         <div class="foot">
             <p>cyrian.torrejon@etu.univ-grenoble-alpes.fr</p>
-            <p>Last Update : 13/11/2024</p>
+            <p class="disp">Last Update : 13/11/2024</p>
         </div>
     </footer>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
