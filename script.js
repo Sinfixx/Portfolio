@@ -176,7 +176,13 @@ window.addEventListener('click', function(event) {
 window.addEventListener('scroll', function() {
     const parallax = document.querySelector('.parallax');
     let scrollPosition = window.pageYOffset;
-    parallax.style.backgroundPositionY = `${scrollPosition * 0.2}px`; /* Ajuste le coefficient pour contrôler la vitesse */
+    parallax.style.backgroundPositionY = `${(scrollPosition-2000) * 0.2}px`; /* Ajuste le coefficient pour contrôler la vitesse */
+});
+
+window.addEventListener('load', function() {
+    const parallax = document.querySelector('.parallax');
+    let scrollPosition = window.pageYOffset;
+    parallax.style.backgroundPositionY = `${(scrollPosition-2000) * 0.2}px`; /* Ajuste le coefficient pour contrôler la vitesse */
 });
 
 //=================splash screen=========================

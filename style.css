@@ -18,15 +18,16 @@ body::-webkit-scrollbar {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     color: ghostwhite;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(bg/par2.gif);
+    background-image: url(bg/par4.jpg);
     background-attachment: fixed;
+    background-position: 50%;
+    background-size: 2048px;
 }
-
 
 header {
     background-color: #1e1e1e;
@@ -96,7 +97,7 @@ footer{
 main {
     padding: 80px 20px 20px; /* Ajout de padding supérieur pour compenser la navbar fixe */
     background-color: rgb(17, 17, 17, 0.8);
-    width: 90%;
+    width: 100%;
     box-shadow: rgb(17, 17, 17) 0 0 25px, 1px 1px 2px rgb(17, 17, 17);
 }
 
@@ -146,6 +147,13 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding-top: 20px;
+}
+
+.instaZone{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 /*======================= Projets =======================*/
@@ -416,6 +424,10 @@ h2 {
 /*============== Responsiveness ===================*/
 
 @media (max-width: 1200px) {
+    body{
+        background-position: fixed;
+    }
+
     .navbar ul {
         display: none;
     }
@@ -699,6 +711,21 @@ h2 {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; /* Pour le défilement fluide sur iOS */
+}
+
+/*Bouton Insta*/
+
+.instagram-button i {
+    color : ghostwhite;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    font-size: xx-large;
+}
+
+.instagram-button:hover i {
+    background : linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
 
     /*====================== Splash Screen ===========================*/*
