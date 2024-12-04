@@ -29,6 +29,42 @@ body {
     background-size: 2048px;
 }
 
+/*========== Neige ==================*/
+
+.snowflake {
+    position: absolute;
+    top: -10px; /* Commence juste au-dessus de l'écran */
+    color: white;
+    font-size: 10px; /* Taille par défaut des flocons */
+    user-select: none;
+    animation-name: sway, fall;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite, infinite;
+    z-index: 1;
+
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Animation de chute */
+@keyframes fall {
+    to {
+        transform: translateY(var(--page-height));
+    }
+}
+
+/* Animation d'oscillation horizontale */
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(-50px);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+}
+
+/*===================================*/
+
 header {
     background-color: #1e1e1e;
     padding: 10px 0;
@@ -98,7 +134,10 @@ main {
     padding: 80px 20px 20px; /* Ajout de padding supérieur pour compenser la navbar fixe */
     background-color: rgb(17, 17, 17, 0.8);
     width: 100%;
-    box-shadow: rgb(17, 17, 17) 0 0 25px, 1px 1px 2px rgb(17, 17, 17);
+}
+
+main * {
+    z-index: 2;
 }
 
 section {
@@ -132,7 +171,7 @@ h2 {
 
 #about {
     text-align: center;
-    padding: 0 10% 0 10%;
+    padding: 0;
 }
 
 .about{
@@ -423,6 +462,10 @@ h2 {
 
 /*============== Responsiveness ===================*/
 
+.cardiv{
+    padding: 0 10% 0 0;
+}
+
 @media (max-width: 1200px) {
     body{
         background-position: fixed;
@@ -486,6 +529,10 @@ h2 {
     }
 
     #about {
+        padding: 0;
+    }
+
+    .cardiv{
         padding: 0;
     }
 }

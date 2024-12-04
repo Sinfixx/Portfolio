@@ -15,7 +15,7 @@
 
     <title>Portfolio | Cyrian Torrejon</title>
 </head>
-<body class="parallax">
+<body id="snow-container" class="parallax">
     <!-- preloader -->
     <div id="preloader">
         <div id="loader"></div>
@@ -162,8 +162,8 @@
                             <p>React</p>
                         </div>
                         <div class="pic">
-                            <i class='bx bxl-django'></i>
-                            <p>Django</p>
+                            <i class='bx bxl-postgresql'></i>
+                            <p>PostGreSQL</p>
                         </div>
                     </div>
                 </div>
@@ -290,21 +290,21 @@
         <!-- Section Contact -->
         <section id="contact">
             <div class="contact-form-container">
-                <form id="contactForm">
-                  <h2>Contactez-moi</h2>
-                  <div class="input-container">
-                    <input type="text" id="name" name="name" required placeholder="Nom">
-                    <span class="underline"></span>
-                  </div>
-                  <div class="input-container">
-                    <input type="email" id="email" name="email" required placeholder="Email">
-                    <span class="underline"></span>
-                  </div>
-                  <div class="input-container">
-                    <textarea id="message" name="message" required placeholder="Message"></textarea>
-                    <span class="underline"></span>
-                  </div>
-                  <button class="form-button" type="submit">Envoyer</button>
+                <form id="contactForm" onsubmit="sendMail(event)">
+                    <h2>Contactez-moi</h2>
+                    <div class="input-container">
+                        <input type="text" id="name" name="name" required placeholder="Nom">
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" id="email" name="email" required placeholder="Email">
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-container">
+                        <textarea id="message" name="message" required placeholder="Message"></textarea>
+                        <span class="underline"></span>
+                    </div>
+                    <button class="form-button" type="submit">Envoyer</button>
                 </form>
             </div>
         </section>
