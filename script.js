@@ -261,7 +261,7 @@ function sendMail(event) {
 
     // Construction de l'URL mailto
     const mailto_URL =
-        `mailto:cyrian.torrejon@free.fr?subject=Contact&body=` + encodeURIComponent(body);
+        `mailto:cyrian.torrejon@etu.univ-grenoble-alpes.fr?subject=Contact&body=` + encodeURIComponent(body);
 
     // Redirection
     window.location.href = mailto_URL;
