@@ -244,33 +244,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function sendMail(event) {
     event.preventDefault();
-  
+
     const name = document.getElementById("name").value.toUpperCase();
-    const surname = capitalize(document.getElementById("email").value);
+    const email = document.getElementById("email").value; // Renommé correctement
     const message = document.getElementById("message").value;
-  
+
+    // Formatage du corps de l'email
     const body = `
-      ${name}, contact : ${email}, at ${new Date().toLocaleDateString()}
-      \n
-      \n
-      ${message}
-      `;
-  
+        Nom : ${name}
+        Email : ${email}
+        Date : ${new Date().toLocaleDateString()}
+        
+        Message :
+        ${message}
+    `.trim(); // trim() pour enlever les espaces superflus
+
+    // Construction de l'URL mailto
     const mailto_URL =
-      "mailto:cyrian.torrejon@free.fr?subject=Contact&body=" +
-      encodeURIComponent(body);
-  
+        `mailto:cyrian.torrejon@free.fr?subject=Contact&body=` + encodeURIComponent(body);
+
+    // Redirection
     window.location.href = mailto_URL;
-  }
+}
 
 /* =============== Neige ==============*/
 
 // Configuration
 const SNOWFLAKE_COUNT = 100; // Nombre de flocons
-const MIN_FALL_SPEED = 12; // Vitesse minimale de chute en secondes
-const MAX_FALL_SPEED = 20; // Vitesse maximale de chute en secondes
+const MIN_FALL_SPEED = 17; // Vitesse minimale de chute en secondes
+const MAX_FALL_SPEED = 25; // Vitesse maximale de chute en secondes
 const MIN_SWAY_SPEED = 3; // Durée minimale de l'oscillation
 const MAX_SWAY_SPEED = 6; // Durée maximale de l'oscillation
+// Largeur totale disponible pour les flocons (excluant les marges)
+const screenWidth = window.innerWidth;
+const margin = 30; // Marge de chaque côté
+const availableWidth = screenWidth - 2 * margin;
 
 // Conteneur pour les flocons
 const snowContainer = document.getElementById('snow-container');
@@ -282,7 +290,8 @@ function createSnowflake() {
     snowflake.innerHTML = '❄'; // Caractère du flocon (modifiable)
 
     // Position horizontale aléatoire
-    snowflake.style.left = Math.random() * 100 + 'vw';
+    const leftPosition = Math.random() * availableWidth + margin;
+    snowflake.style.left = `${leftPosition}px`;
 
     // Taille aléatoire
     const size = Math.random() * 10 + 10; // Entre 10px et 20px
@@ -308,11 +317,49 @@ function createSnowflake() {
     });
 }
 
-// Crée des flocons à intervalle régulier
+// Génère un flocon de neige adapté aux appareils mobiles
+function createMobileSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = '❄'; // Caractère du flocon (modifiable)
+
+    // Position horizontale aléatoire
+    const leftPosition = Math.random() * availableWidth + margin;
+    snowflake.style.left = `${leftPosition}px`;
+    
+    // Taille aléatoire
+    const size = Math.random() * 5 + 5; // Entre 10px et 20px
+    snowflake.style.fontSize = `${size}px`;
+
+    // Opacité aléatoire
+    snowflake.style.opacity = Math.random();
+
+    // Durée de l'oscillation
+    const swaySpeed = Math.random() * (MAX_SWAY_SPEED - MIN_SWAY_SPEED) + MIN_SWAY_SPEED;
+
+    // Durée de l'animation de chute (vitesse)
+    const fallSpeed = Math.random() * (MAX_FALL_SPEED - MIN_FALL_SPEED) + MIN_FALL_SPEED;
+
+    snowflake.style.animationDuration = `${swaySpeed}s` + ',' + `${fallSpeed}s`;
+
+    // Ajoute le flocon au conteneur
+    snowContainer.appendChild(snowflake);
+
+    // Retire le flocon après qu'il ait quitté l'écran
+    snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+    });
+}
+
+// Adapter la génération des flocons selon le type d'appareil
 setInterval(() => {
     if (document.hidden) return; // Évite de générer des flocons lorsque l'onglet est inactif
-    createSnowflake();
-}, 650); // Ajustez cet intervalle pour changer la densité des flocons
+    if (window.innerWidth < 1200) {
+        createMobileSnowflake(); // Génère un flocon adapté au mobile
+    } else {
+        createSnowflake(); // Génère un flocon adapté au bureau
+    }
+}, 650);
 
 function removeAllSnowflakes() {
     const snowflakes = document.querySelectorAll('.snowflake');
